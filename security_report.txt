@@ -1,0 +1,70 @@
+CODE REVIEW REPORT
+
+Project: Login Authentication System
+
+1. Hardcoded Password
+The password is directly written in the source code.
+This can expose the password to others.
+
+2. Weak Password
+The password 1234 is easy to guess.
+
+3. No Login Attempt Limit
+Users can enter incorrect passwords repeatedly.
+
+Conclusion:
+The original login program has security weaknesses.
+These issues must be corrected to improve security.s
+BANDIT SCAN RESULTS
+
+Tool Used: Bandit
+File Scanned: login.py
+
+Total Issues Found: 1
+
+Issue:
+Hardcoded Password
+
+Severity: Low
+Confidence: Medium
+Line Number: 6
+
+Recommendation:
+Avoid storing passwords directly in source code.
+Use secure password hashing and authentication methods.
+SECURE CODING IMPLEMENTATION
+
+Improvements Made:
+
+1. Password hashing using SHA-256 PBKDF2.
+2. Randomness through salt.
+3. Secure password comparison.
+4. Maximum three login attempts.
+
+TESTING RESULTS:
+
+Test 1: Correct credentials
+Result: Login Successful.
+
+Test 2: Three incorrect attempts
+Result: Account locked.
+
+Conclusion:
+The improved program provides better
+protection against basic login attacks.
+FINAL BANDIT SCAN
+
+Tool Used: Bandit
+File Scanned: secure_login.py
+
+Total Issues Found: 0
+Low: 0
+Medium: 0
+High: 0
+
+Result:
+No issues identified by Bandit.
+
+The improved program was tested with
+correct and incorrect login credentials.
+The three-attempt limit worked successfully.
